@@ -10,7 +10,7 @@ $input = new InputReader();
 $id = $input->read('Entre com a id do usuário: ', '%s');
 
 
-$url = 'http://ec2-35-164-139-210.us-west-2.compute.amazonaws.com';
+$url = 'http://ec2-35-164-223-211.us-west-2.compute.amazonaws.com';
 $recurso = '/hirers/'.$id.'/opportunities';
 $verbo = 'GET';
 

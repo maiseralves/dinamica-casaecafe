@@ -4,16 +4,17 @@ require 'class/InputReader.class.php';
 include 'forms/form_opportunities.inc.php';
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7;
-use GuzzleHttp\Stream\Stream;
 use GuzzleHttp\Exception\RequestException;
 
-$url = 'http://ec2-35-164-139-210.us-west-2.compute.amazonaws.com';
+$url = 'http://ec2-35-164-223-211.us-west-2.compute.amazonaws.com';
 $recurso = '/opportunities';
 $verbo = 'POST';
 
 
 $input = new InputReader();
+$id = "";
+
+
 do{
 	$id = $input->read('ID do contratante (hirer) a ser criado no recurso '.$recurso.': ', '%d');
 	
@@ -93,7 +94,7 @@ $FORM_FIELDS = str_replace('%DATA%', date("Y-m-d H:i:s"), $FORM_FIELDS);
 $key = "";
 $json = json_decode($FORM_FIELDS, true);
 
-echo PHP_EOL."\tEntre com os valores dos campos: ".PHP_EOL.PHP_EOL;
+echo PHP_EOL."\tEntre com os valores dos campos da oportunidade: ".PHP_EOL.PHP_EOL;
 
 //percorre o array json aplicando a função "fill_fields"
 array_walk($json, 'fill_fields', $key);
